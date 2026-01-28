@@ -59,4 +59,21 @@ public class BaseballNumber {
 		return count;
 	}
 
+	public int countBall(BaseballNumber baseballNumber) {
+		int count = 0;
+
+		for (int pivotIndex = 0; pivotIndex < LEN; pivotIndex++) {
+			for (int index = 0; index < LEN; index++) {
+				if (pivotIndex == index) {
+					continue;
+				}
+
+				if (numbers.get(pivotIndex).equals(baseballNumber.numbers.get(index))) {
+					count++;
+				}
+			}
+		}
+
+		return count;
+	}
 }

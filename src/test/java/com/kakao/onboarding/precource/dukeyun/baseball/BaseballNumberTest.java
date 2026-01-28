@@ -61,4 +61,15 @@ class BaseballNumberTest {
 		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(3, 1, 2)))).isEqualTo(0);
 	}
 
+	@Test
+	void 볼_갯수를_계산할_수_있다() {
+		BaseballNumber systemNumber = new BaseballNumber(List.of(1, 2, 3));
+
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(1, 2, 3)))).isEqualTo(0);
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(1, 2, 4)))).isEqualTo(0);
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(1, 3, 4)))).isEqualTo(1);
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(3, 2, 1)))).isEqualTo(2);
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(4, 5, 6)))).isEqualTo(0);
+		assertThat(systemNumber.countBall(new BaseballNumber(List.of(3, 1, 2)))).isEqualTo(3);
+	}
 }
