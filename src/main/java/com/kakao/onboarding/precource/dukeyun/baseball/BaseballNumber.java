@@ -47,4 +47,16 @@ public class BaseballNumber {
 		}
 	}
 
+	public int countStrike(BaseballNumber baseballNumber) {
+		int count = 0;
+
+		for (int index = 0; index < LEN; index++) {
+			if (numbers.get(index).equals(baseballNumber.numbers.get(index))) {
+				count++;
+			}
+		}
+
+		return count;
+	}
+
 }

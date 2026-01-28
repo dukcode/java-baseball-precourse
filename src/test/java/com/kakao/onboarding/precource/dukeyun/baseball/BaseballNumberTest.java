@@ -49,4 +49,16 @@ class BaseballNumberTest {
 		).doesNotThrowAnyException();
 	}
 
+	@Test
+	void 스트라이크_갯수를_계산할_수_있다() {
+		BaseballNumber systemNumber = new BaseballNumber(List.of(1, 2, 3));
+
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(1, 2, 3)))).isEqualTo(3);
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(1, 2, 4)))).isEqualTo(2);
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(1, 3, 4)))).isEqualTo(1);
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(3, 2, 1)))).isEqualTo(1);
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(4, 5, 6)))).isEqualTo(0);
+		assertThat(systemNumber.countStrike(new BaseballNumber(List.of(3, 1, 2)))).isEqualTo(0);
+	}
+
 }
