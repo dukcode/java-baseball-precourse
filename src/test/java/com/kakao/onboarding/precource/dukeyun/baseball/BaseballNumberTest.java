@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import com.kakao.onboarding.precource.dukeyun.baseball.baseball.BaseballNumber;
+
 class BaseballNumberTest {
 	@Test
 	void 기준_길이보다_길면_생성이_안된다() {
