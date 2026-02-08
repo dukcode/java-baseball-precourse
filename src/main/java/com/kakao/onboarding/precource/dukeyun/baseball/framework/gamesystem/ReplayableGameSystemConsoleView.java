@@ -1,4 +1,6 @@
-package com.kakao.onboarding.precource.dukeyun.baseball;
+package com.kakao.onboarding.precource.dukeyun.baseball.framework.gamesystem;
+
+import com.kakao.onboarding.precource.dukeyun.baseball.utils.Console;
 
 public class ReplayableGameSystemConsoleView implements ReplayableGameSystemView {
 

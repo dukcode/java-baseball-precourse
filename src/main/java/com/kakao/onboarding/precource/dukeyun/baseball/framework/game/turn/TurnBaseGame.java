@@ -1,4 +1,6 @@
-package com.kakao.onboarding.precource.dukeyun.baseball;
+package com.kakao.onboarding.precource.dukeyun.baseball.framework.game.turn;
+
+import com.kakao.onboarding.precource.dukeyun.baseball.framework.game.Game;
 
 public class TurnBaseGame implements Game {
 
