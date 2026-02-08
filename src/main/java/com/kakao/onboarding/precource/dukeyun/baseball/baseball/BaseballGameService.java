@@ -11,7 +11,7 @@ public class BaseballGameService implements TurnBaseGameService {
 	private BaseballNumber answer;
 
 	public BaseballGameService(BaseballNumberGenerator baseballNumberGenerator) {
-		this(new BaseballGameConfig(), baseballNumberGenerator);
+		this(new BaseballGameConfig(3, 1, 9), baseballNumberGenerator);
 	}
 
 	public BaseballGameService(BaseballGameConfig config, BaseballNumberGenerator baseballNumberGenerator) {

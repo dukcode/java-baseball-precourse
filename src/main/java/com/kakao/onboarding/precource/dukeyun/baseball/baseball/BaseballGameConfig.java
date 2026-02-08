@@ -10,15 +10,15 @@ public class BaseballGameConfig {
 	private final int minRange;
 	private final int maxRange;
 
-	public BaseballGameConfig() {
-		this(DEFAULT_LENGTH, DEFAULT_MIN_RANGE, DEFAULT_MAX_RANGE);
-	}
-
 	public BaseballGameConfig(int length, int minRange, int maxRange) {
 		validateConfig(length, minRange, maxRange);
 		this.length = length;
 		this.minRange = minRange;
 		this.maxRange = maxRange;
+	}
+
+	public static BaseballGameConfig ofDefault() {
+		return new BaseballGameConfig(DEFAULT_LENGTH, DEFAULT_MIN_RANGE, DEFAULT_MAX_RANGE);
 	}
 
 	private void validateConfig(int length, int minRange, int maxRange) {

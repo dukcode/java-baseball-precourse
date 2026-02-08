@@ -1,8 +1,10 @@
 package com.kakao.onboarding.precource.dukeyun.baseball.mock;
 
+import java.util.List;
+
+import com.kakao.onboarding.precource.dukeyun.baseball.baseball.BaseballGameConfig;
 import com.kakao.onboarding.precource.dukeyun.baseball.baseball.BaseballNumber;
 import com.kakao.onboarding.precource.dukeyun.baseball.baseball.BaseballNumberGenerator;
-import java.util.List;
 
 public class TestBaseballNumberGenerator implements BaseballNumberGenerator {
 	private final List<Integer> fixedNumbers;
@@ -13,6 +15,6 @@ public class TestBaseballNumberGenerator implements BaseballNumberGenerator {
 
 	@Override
 	public BaseballNumber generate() {
-		return new BaseballNumber(fixedNumbers);
+		return new BaseballNumber(new BaseballGameConfig(3, 1, 9), fixedNumbers);
 	}
 }

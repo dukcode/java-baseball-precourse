@@ -9,17 +9,17 @@ public class BaseballGameTurnInput implements TurnInput {
 
 	private final BaseballNumber baseballNumber;
 
-	public BaseballGameTurnInput(String input) {
+	public BaseballGameTurnInput(BaseballGameConfig config, String input) {
 		valid(input);
-		this.baseballNumber = createBaseballNumber(input);
+		this.baseballNumber = createBaseballNumber(config, input);
 	}
 
-	private BaseballNumber createBaseballNumber(String input) {
+	private BaseballNumber createBaseballNumber(BaseballGameConfig config, String input) {
 		List<Integer> numbers = new ArrayList<>();
 		for (char ch : input.toCharArray()) {
 			numbers.add(ch - '0');
 		}
-		return new BaseballNumber(numbers);
+		return new BaseballNumber(config, numbers);
 	}
 
 	private void valid(String input) {

@@ -7,10 +7,6 @@ public class BaseballNumber {
 	private final BaseballGameConfig config;
 	private final List<Integer> numbers;
 
-	public BaseballNumber(List<Integer> numbers) {
-		this(new BaseballGameConfig(), numbers);
-	}
-
 	public BaseballNumber(BaseballGameConfig config, List<Integer> numbers) {
 		this.config = config;
 		checkLength(numbers);
@@ -39,13 +35,15 @@ public class BaseballNumber {
 	private void checkNumberRange(int number) {
 		if (number < config.getMinRange() || config.getMaxRange() < number) {
 			throw new RuntimeException(
-				String.format("숫자 범위는 %d 이상 %d 이하여야 합니다. (문제 숫자: %d)", config.getMinRange(), config.getMaxRange(), number));
+				String.format("숫자 범위는 %d 이상 %d 이하여야 합니다. (문제 숫자: %d)", config.getMinRange(), config.getMaxRange(),
+					number));
 		}
 	}
 
 	private void checkLength(List<Integer> numbers) {
 		if (numbers.size() != config.getLength()) {
-			throw new RuntimeException(String.format("숫자야구 길이는 %d이어야 합니다.(현재 길이 : %d)", config.getLength(), numbers.size()));
+			throw new RuntimeException(
+				String.format("숫자야구 길이는 %d이어야 합니다.(현재 길이 : %d)", config.getLength(), numbers.size()));
 		}
 	}
 

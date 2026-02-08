@@ -1,32 +1,37 @@
 package com.kakao.onboarding.precource.dukeyun.baseball.baseball;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.*;
 
-import com.kakao.onboarding.precource.dukeyun.baseball.mock.TestBaseballNumberGenerator;
 import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayNameGeneration;
 import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
+import com.kakao.onboarding.precource.dukeyun.baseball.mock.TestBaseballNumberGenerator;
+
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class BaseballGameServiceTest {
 
 	private BaseballGameService baseballGameService;
+	private BaseballGameConfig baseballGameConfig;
 
 	@BeforeEach
 	public void init() {
 		baseballGameService = new BaseballGameService(new TestBaseballNumberGenerator(List.of(1, 2, 3)));
 		baseballGameService.init();
+
+		baseballGameConfig = new BaseballGameConfig(3, 1, 9);
 	}
 
 	@Test
 	public void 정답_시_결과_객체에_클리어_정보를_반환한다() throws Exception {
 		// given
-		BaseballGameTurnInput input = new BaseballGameTurnInput("123");
+		BaseballGameTurnInput input = new BaseballGameTurnInput(baseballGameConfig, "123");
 
 		// when
-		BaseballGameTurnResult result = (BaseballGameTurnResult) baseballGameService.playTurn(input);
+		BaseballGameTurnResult result = (BaseballGameTurnResult)baseballGameService.playTurn(input);
 
 		//then
 		assertThat(result.isGameCleared()).isTrue();
@@ -37,10 +42,10 @@ class BaseballGameServiceTest {
 	@Test
 	public void 정답이_아닐_시_결과_객체에_클리어_실패_정보를_반환한다() throws Exception {
 		// given
-		BaseballGameTurnInput input = new BaseballGameTurnInput("132");
+		BaseballGameTurnInput input = new BaseballGameTurnInput(baseballGameConfig, "132");
 
 		// when
-		BaseballGameTurnResult result = (BaseballGameTurnResult) baseballGameService.playTurn(input);
+		BaseballGameTurnResult result = (BaseballGameTurnResult)baseballGameService.playTurn(input);
 
 		//then
 		assertThat(result.isGameCleared()).isFalse();
@@ -51,10 +56,10 @@ class BaseballGameServiceTest {
 	@Test
 	public void 모두_틀리면_볼과_스트라이크_모두_0이다() throws Exception {
 		// given
-		BaseballGameTurnInput input = new BaseballGameTurnInput("456");
+		BaseballGameTurnInput input = new BaseballGameTurnInput(baseballGameConfig, "456");
 
 		// when
-		BaseballGameTurnResult result = (BaseballGameTurnResult) baseballGameService.playTurn(input);
+		BaseballGameTurnResult result = (BaseballGameTurnResult)baseballGameService.playTurn(input);
 
 		//then
 		assertThat(result.isGameCleared()).isFalse();
@@ -65,10 +70,10 @@ class BaseballGameServiceTest {
 	@Test
 	public void 모두_자리만_다르면_3볼이다() throws Exception {
 		// given
-		BaseballGameTurnInput input = new BaseballGameTurnInput("312");
+		BaseballGameTurnInput input = new BaseballGameTurnInput(baseballGameConfig, "312");
 
 		// when
-		BaseballGameTurnResult result = (BaseballGameTurnResult) baseballGameService.playTurn(input);
+		BaseballGameTurnResult result = (BaseballGameTurnResult)baseballGameService.playTurn(input);
 
 		//then
 		assertThat(result.isGameCleared()).isFalse();

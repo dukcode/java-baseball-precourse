@@ -16,10 +16,6 @@ public class BaseballGameConsoleView implements TurnBaseGameView {
 
 	private final BaseballGameConfig config;
 
-	public BaseballGameConsoleView() {
-		this(new BaseballGameConfig());
-	}
-
 	public BaseballGameConsoleView(BaseballGameConfig config) {
 		this.config = config;
 	}
@@ -47,7 +43,7 @@ public class BaseballGameConsoleView implements TurnBaseGameView {
 	@Override
 	public TurnInput requestTurnInput() {
 		System.out.print(REQUEST_INPUT_MESSAGE);
-		return new BaseballGameTurnInput(Console.readLine());
+		return new BaseballGameTurnInput(config, Console.readLine());
 	}
 
 	@Override

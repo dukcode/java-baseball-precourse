@@ -11,7 +11,7 @@ public class RandomBaseballNumberGenerator implements BaseballNumberGenerator {
 	private final BaseballGameConfig config;
 
 	public RandomBaseballNumberGenerator() {
-		this(new BaseballGameConfig());
+		this(new BaseballGameConfig(3, 1, 9));
 	}
 
 	public RandomBaseballNumberGenerator(BaseballGameConfig config) {
