@@ -34,7 +34,7 @@ public class BaseballNumber {
 
 	private void checkNumberRange(int number) {
 		if (number < config.getMinRange() || config.getMaxRange() < number) {
-			throw new RuntimeException(
+			throw new IllegalArgumentException(
 				String.format("숫자 범위는 %d 이상 %d 이하여야 합니다. (문제 숫자: %d)", config.getMinRange(), config.getMaxRange(),
 					number));
 		}
@@ -42,7 +42,7 @@ public class BaseballNumber {
 
 	private void checkLength(List<Integer> numbers) {
 		if (numbers.size() != config.getLength()) {
-			throw new RuntimeException(
+			throw new IllegalArgumentException(
 				String.format("숫자야구 길이는 %d이어야 합니다.(현재 길이 : %d)", config.getLength(), numbers.size()));
 		}
 	}

@@ -22,11 +22,15 @@ public class TurnBaseGame implements Game {
 		turnBaseGameView.printStart();
 
 		while (true) {
-			TurnResult turnResult = turnBaseGameService.playTurn(turnBaseGameView.requestTurnInput());
-			turnBaseGameView.printResult(turnResult);
-			if (turnResult.isGameCleared()) {
-				turnBaseGameView.printClear();
-				return;
+			try {
+				TurnResult turnResult = turnBaseGameService.playTurn(turnBaseGameView.requestTurnInput());
+				turnBaseGameView.printResult(turnResult);
+				if (turnResult.isGameCleared()) {
+					turnBaseGameView.printClear();
+					return;
+				}
+			} catch (IllegalArgumentException e) {
+				System.out.println("[ERROR] " + e.getMessage());
 			}
 		}
 	}
