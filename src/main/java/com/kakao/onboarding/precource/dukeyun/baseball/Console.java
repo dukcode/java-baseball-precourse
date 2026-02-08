@@ -7,6 +7,6 @@ public class Console {
 	private static final Scanner scanner = new Scanner(System.in);
 
 	public static String readLine() {
-		return scanner.nextLine();
+		return scanner.nextLine().trim();
 	}
 }
