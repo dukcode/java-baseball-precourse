@@ -1,12 +1,10 @@
-package com.kakao.onboarding.precource.dukeyun.baseball;
+package com.kakao.onboarding.precource.dukeyun.baseball.baseball;
 
 import static org.assertj.core.api.Assertions.*;
 
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
-
-import com.kakao.onboarding.precource.dukeyun.baseball.baseball.BaseballNumber;
 
 class BaseballNumberTest {
 	@Test
