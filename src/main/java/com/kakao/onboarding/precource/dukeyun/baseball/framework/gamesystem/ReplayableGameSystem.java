@@ -18,7 +18,16 @@ public class ReplayableGameSystem implements GameSystem {
 		while (replay) {
 			game.init();
 			game.play();
-			replay = systemView.requestReplayInput();
+			replay = inputReplay();
+		}
+	}
+
+	private boolean inputReplay() {
+		try {
+			return systemView.requestReplayInput();
+		} catch (IllegalArgumentException e) {
+			System.out.println("[ERROR] " + e.getMessage());
+			return inputReplay();
 		}
 	}
 }
