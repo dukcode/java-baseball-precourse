@@ -1,9 +1,12 @@
 package com.kakao.onboarding.precource.dukeyun.baseball;
 
+import com.kakao.onboarding.precource.dukeyun.baseball.framework.gamesystem.GameSystem;
+
 public class App {
 
 	public static void main(String[] args) {
-		System.out.println("Hello World");
+		GameSystem baseballGameSystem = GameFactory.createBaseballGameSystem();
+		baseballGameSystem.run();
 	}
 
 }
