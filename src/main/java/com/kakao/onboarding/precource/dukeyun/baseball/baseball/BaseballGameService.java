@@ -10,10 +10,6 @@ public class BaseballGameService implements TurnBaseGameService {
 	private final BaseballNumberGenerator baseballNumberGenerator;
 	private BaseballNumber answer;
 
-	public BaseballGameService(BaseballNumberGenerator baseballNumberGenerator) {
-		this(new BaseballGameConfig(3, 1, 9), baseballNumberGenerator);
-	}
-
 	public BaseballGameService(BaseballGameConfig config, BaseballNumberGenerator baseballNumberGenerator) {
 		this.config = config;
 		this.baseballNumberGenerator = baseballNumberGenerator;

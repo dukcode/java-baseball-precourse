@@ -19,10 +19,11 @@ class BaseballGameServiceTest {
 
 	@BeforeEach
 	public void init() {
-		baseballGameService = new BaseballGameService(new TestBaseballNumberGenerator(List.of(1, 2, 3)));
-		baseballGameService.init();
-
 		baseballGameConfig = new BaseballGameConfig(3, 1, 9);
+
+		baseballGameService = new BaseballGameService(baseballGameConfig,
+			new TestBaseballNumberGenerator(List.of(1, 2, 3)));
+		baseballGameService.init();
 	}
 
 	@Test
