@@ -14,18 +14,19 @@ public class GameFactory {
 	private GameFactory() {
 	}
 
+	public static BaseballGameConfig baseballGameConfig() {
+		return new BaseballGameConfig(3, 1, 9);
+	}
+
 	public static GameSystem createBaseballGameSystem() {
-		return createBaseballGameSystem(new BaseballGameConfig(3, 1, 9));
+		return createBaseballGameSystem(baseballGameConfig());
 	}
 
 	public static GameSystem createBaseballGameSystem(BaseballGameConfig config) {
-		return new ReplayableGameSystem(
-			new ReplayableGameSystemConsoleView(),
-			createBaseBallGame(config)
-		);
+		return new ReplayableGameSystem(new ReplayableGameSystemConsoleView(), createBaseballGame(config));
 	}
 
-	private static Game createBaseBallGame(BaseballGameConfig config) {
+	private static Game createBaseballGame(BaseballGameConfig config) {
 		return new TurnBaseGame(
 			new BaseballGameConsoleView(config),
 			new BaseballGameService(config, new RandomBaseballNumberGenerator(config))
